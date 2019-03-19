@@ -18,17 +18,17 @@ function Controller($scope) {
 		if (lunchMenuArr.length === 0){
 			$scope.message = 'Please enter data first'
 			$scope.msgClassList = msgClassListdefault + ' text-danger'
-			$scope.myStyle = "border: 1px solid red; padding:5px;"	
+			$scope.myStyle = "border-color: red;"	
 		}
 		else if (lunchMenuArr.length < 4){
 			$scope.message = 'Enjoy!'
 			$scope.msgClassList = msgClassListdefault + ' text-success'
-			$scope.myStyle = "border: 1px solid green; padding:5px;"	
+			$scope.myStyle = "border-color: green;"	
 		}
 		else {
 			$scope.message = 'Too much!'
 			$scope.msgClassList = msgClassListdefault + ' text-success'
-			$scope.myStyle = "border: 1px solid green; padding:5px;"
+			$scope.myStyle = "border-color: green;"	
 		}
 		
 		if($scope.lunchMenu.split(',').filter(e => e.trim().length === 0).length >0 && $scope.lunchMenu.length > 0){
