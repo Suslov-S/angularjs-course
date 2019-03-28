@@ -1,6 +1,9 @@
-<ol>
-  <li ng-repeat="item in list.items">
+<div style="clear: both; color:red" ng-if="list.items.length == 0">
+  Nothing found
+</div>
+<ol class="list-group">
+  <li ng-repeat="item in list.items" class="list-group-item" style="clear: both;">
     {{ item.name }}
-    <button ng-click="list.onRemove({index: $index});">Remove Item</button>
+    <button ng-click="list.onRemove({index: $index});" class="btn btn-primary" style="float: right; margin: -7px">Don't want this one!</button>
   </li>
 </ol>

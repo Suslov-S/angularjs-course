@@ -38,30 +38,32 @@ function NarrowItDownController(MenuSearchService) {
   var narrow = this;
 
   narrow.searchTerm = "";
-  
-  
+
+
   narrow.getMatchedMenuItems = function (searchTerm) {
 
 	var promise = MenuSearchService.getMenuItems();
 
 	function myFilter(obj){
 		var name = obj.name.toLowerCase();
-		
+
 		if(name.indexOf(searchTerm) > 0)
 			return true
 		else
 			return false
 	};
-	
+
     promise.then(function (response) {
-      var result = response.data.menu_items.filter(myFilter)
+      narrow.items = response.data.menu_items.filter(myFilter)
     })
     .catch(function (error) {
       console.log("Something went terribly wrong.");
     })
   };
-  
-  
+
+  narrow.removeItem = function (itemIndex) {
+    narrow.items.splice(itemIndex, 1);
+  };
 }
 
 
